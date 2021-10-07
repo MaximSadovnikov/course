@@ -1,7 +1,7 @@
 object LibVers {
 
     const val spring_boot = "2.5.0"
-    const val junit = "5.8.1"
+    const val junit = "5.7.1"
     const val kotest = "4.6.3"
     const val jackson = "2.13.0"
     const val telnet = "1.1"
