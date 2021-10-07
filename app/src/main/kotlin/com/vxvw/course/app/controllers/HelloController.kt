@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.GetMapping
 class HelloController {
 
     @GetMapping("/hello")
-    fun index() = Views.helloWorld
+    fun hello() = Views.helloWorld
 }

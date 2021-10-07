@@ -1,5 +1,8 @@
 package com.vxvw.course.app
 
+import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
+import io.kotest.matchers.string.shouldContain
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -16,7 +19,12 @@ class MainTest {
 
     @Test
     fun `when call main page redirect be shown`() {
-        mockMvc.get("/hello")
-//            .andExpect { print { "Hello world" } }
+        val result = mockMvc.get("/hello")
+            .andExpect { status { isOk() } }
+            .andReturn()
+
+        result.modelAndView shouldNotBe null
+        result.modelAndView!!.viewName shouldBe "hello_world"
+        result.response.contentAsString shouldContain "Hello world"
     }
 }
