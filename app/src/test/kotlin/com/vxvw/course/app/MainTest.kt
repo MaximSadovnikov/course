@@ -20,11 +20,11 @@ class MainTest {
     @Test
     fun `when call main page redirect be shown`() {
         val result = mockMvc.get("/hello")
-            .andExpect { status { isOk() } }
+            .andExpect { status { is2xxSuccessful() } }
             .andReturn()
 
         result.modelAndView shouldNotBe null
-        result.modelAndView!!.viewName shouldBe "hello_world"
+        result.modelAndView?.viewName shouldBe "hello_world"
         result.response.contentAsString shouldContain "Hello world"
     }
 }
